@@ -1,12 +1,14 @@
 package Devel::DieHandler::DumpDieArgs;
 
-# DATE
-# VERSION
-
 use strict;
 use warnings;
 
 use Data::Dmp ();
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
 
 my @handler_stack;
 
@@ -42,7 +44,10 @@ sub unimport {
 =head1 DESCRIPTION
 
 When imported, this module installs a C<__DIE__> handler which dumps the content
-of C<@_> to STDERR, then calls the previous handler (or die).
+of C<@_> to STDERR, then calls the previous handler (or die). Useful if your
+code (accidentally?) throws an unhandled a data structure or object exception,
+which normally just prints C<HASH(0x55e20e0fd5e8)> or
+C<Foo=ARRAY(0x5566580705e8)>.
 
 Unimporting (via C<no Devel::DieHandler::DumpDieArgs>) after importing restores
 the previous handler.
